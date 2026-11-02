@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm Daycare Brand Palette per FRONTEND_RULES.md */
+  --color-primary: #e06a3b;
+  --color-primary-hover: #d9531e;
+  --color-primary-50: #fef7f2;
+  --color-primary-100: #fceee4;
+  --color-primary-200: #f9d9c6;
+  --color-primary-300: #f4bba0;
+  --color-primary-400: #eb8f68;
+  --color-primary-500: #e06a3b;
+  --color-primary-600: #d9531e;
+  --color-primary-700: #b43d14;
+  --color-primary-800: #8f3214;
+  --color-primary-900: #742c14;
+  --color-primary-container: #fceee4;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #8f3214;
+
+  --color-secondary: #3a7d5c;
+  --color-secondary-hover: #2d6348;
+  --color-secondary-50: #f2f7f4;
+  --color-secondary-100: #e2ede7;
+  --color-secondary-200: #c6ddd0;
+  --color-secondary-300: #9dc3b0;
+  --color-secondary-400: #6ca48a;
+  --color-secondary-500: #3a7d5c;
+  --color-secondary-600: #2d6348;
+  --color-secondary-700: #25503b;
+  --color-secondary-800: #204131;
+  --color-secondary-900: #1b3629;
+  --color-secondary-container: #e2ede7;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #204131;
+
+  /* Neutrals: Warm Oat Cream foundations per FRONTEND_RULES.md */
+  --color-background: #fdfbf7;
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f7f4ec;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fdfbf7;
+  --color-surface-container: #f7f4ec;
+  --color-surface-container-high: #efe9dc;
+  --color-surface-container-highest: #e3dcce;
+
+  --color-on-background: #231f1d;
+  --color-on-surface: #231f1d;
+  --color-on-surface-variant: #5c5650;
+  --color-outline: #9c948b;
+  --color-outline-variant: #e3dcce;
+
+  --color-inverse-surface: #231f1d;
+  --color-inverse-on-surface: #fdfbf7;
+  --color-inverse-primary: #f4bba0;
+
+  /* Semantics & Allergy Indicators */
+  --color-allergy: #dc2626;
+  --color-allergy-surface: #fef2f2;
+  --color-allergy-border: #fecaca;
+  --color-accent-500: #f59e0b;
+  --color-success-500: #3a7d5c;
+  --color-warning-500: #f59e0b;
+  --color-danger-500: #dc2626;
+  --color-info-500: #3b82f6;
+
+  --color-error: #dc2626;
+  --color-error-container: #fee2e2;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #991b1b;
+
+  --spacing-gutter: 1.5rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-margin: 2rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-gutter-mobile: 0.75rem;
+
+  --font-body-lg: 'Inter', sans-serif;
+  --font-headline-sm: 'Plus Jakarta Sans', sans-serif;
+  --font-label-md: 'Inter', sans-serif;
+  --font-body-sm: 'Inter', sans-serif;
+  --font-mono-data: 'Inter', monospace;
+  --font-display-lg: 'Plus Jakarta Sans', sans-serif;
+  --font-headline-lg: 'Plus Jakarta Sans', sans-serif;
+  --font-label-sm: 'Inter', sans-serif;
+  --font-body-md: 'Inter', sans-serif;
+  --font-headline-xl: 'Plus Jakarta Sans', sans-serif;
+
+  --color-activity-learning: #6366f1;
+  --color-activity-play: #e06a3b;
+  --color-activity-nap: #8b5cf6;
+  --color-activity-outdoor: #3a7d5c;
+  --color-activity-art: #ec4899;
+  --color-activity-music: #14b8a6;
+  --color-activity-eating: #f59e0b;
+  --color-activity-ill: #dc2626;
+  --color-activity-other: #9c948b;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-background, #fdfbf7);
+    color: var(--color-on-surface, #231f1d);
+    -webkit-font-smoothing: antialiased;
+  }
+  #root {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: none;
+    background-color: var(--color-background, #fdfbf7);
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Parent Portal Theme Tokens per Spec §5 */
+:root {
+  --p-primary: #e06a3b;
+  --p-primary-soft: #fceee4;
+  --p-accent: #f59e0b;
+  --p-secondary: #3a7d5c;
+  --p-bg: #fdfbf7;
+  --p-surface: #ffffff;
+  --p-text: #231f1d;
+  --p-muted: #5c5650;
+  --p-success: #3a7d5c;
+  --p-warning: #f59e0b;
+  --p-danger: #dc2626;
+  --p-info: #3b82f6;
+}
+
+/* Dark mode theme overrides */
+.dark {
+  --color-background: #0b0f19;
+  --color-surface: #0f172a;
+  --color-surface-bright: #1e293b;
+  --color-surface-dim: #0b0f19;
+  --color-surface-container-lowest: #141c2e;
+  --color-surface-container-low: #1e293b;
+  --color-surface-container: #243044;
+  --color-surface-container-high: #334155;
+  --color-surface-container-highest: #475569;
+  --color-on-background: #f8fafc;
+  --color-on-surface: #f8fafc;
+  --color-on-surface-variant: #94a3b8;
+  --color-outline: #64748b;
+  --color-outline-variant: #334155;
+  --color-inverse-surface: #f8fafc;
+  --color-inverse-on-surface: #0f172a;
+
+  --color-primary: #eb8f68;
+  --color-primary-container: #8f3214;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fceee4;
+
+  --p-primary: #eb8f68;
+  --p-primary-soft: #2a221e;
+  --p-accent: #fbbf24;
+  --p-bg: #0b0f19;
+  --p-surface: #141c2e;
+  --p-text: #f1f5f9;
+  --p-muted: #94a3b8;
+  --p-success: #34d399;
+  --p-warning: #fbbf24;
+  --p-danger: #f87171;
+  --p-info: #60a5fa;
+}
+
+.dark body {
+  background-color: #0b0f19;
+  color: #f8fafc;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Print Stylesheet for Child Daily History & Reports per Spec §8.10 & §8.15 */
+@media print {
+  aside,
+  header,
+  nav,
+  .no-print,
+  button:not(.print-include),
+  .fab,
+  .fixed,
+  .quick-log-bar {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
+
+/* Ambient Background Motion (Hardware Accelerated 60fps) */
+@keyframes ambientDriftA {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(45px, -35px, 0) scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+@keyframes ambientDriftB {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate3d(-40px, 30px, 0) scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+@keyframes ambientDriftC {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(25px, 45px, 0) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+.animate-ambient-drift-a {
+  animation: ambientDriftA 14s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ambient-drift-b {
+  animation: ambientDriftB 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ambient-drift-c {
+  animation: ambientDriftC 22s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform, opacity;
+}
+
