@@ -39,11 +39,12 @@ __pycache__/
 generate_guide_pdf.py
 pdf_generator/
 
-# Markdown Documentation (as requested)
+# Markdown Documentation (drafts ignored, official docs tracked)
 *.md
 **/*.md
-docs/
-**/docs/
+!/README.md
+!frontend/README.md
+!/docs/**
 
 # Temporary / Scratch HTML Mockups & Diagrams
 frontend/adui.html
