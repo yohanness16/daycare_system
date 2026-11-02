@@ -1,0 +1,51 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: daycare-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: daycare
+      POSTGRES_USER: daycare
+      POSTGRES_PASSWORD: daycare_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - daycare_postgres_data:/var/lib/postgresql
+
+  backend:
+    profiles: ["docker-backend"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: daycare-backend
+    restart: unless-stopped
+    ports:
+      - "5107:5107"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=daycare;Username=daycare;Password=daycare_dev_password
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: daycare-frontend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../frontend:/app
+      - /app/node_modules
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:5107
+      - VITE_API_BASE_URL=http://host.docker.internal:5107
+    depends_on:
+      - postgres
+
+volumes:
+  daycare_postgres_data:

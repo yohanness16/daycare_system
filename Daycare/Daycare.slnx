@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Daycare.Api/Daycare.Api.csproj" />
+    <Project Path="src/Daycare.Application/Daycare.Application.csproj" />
+    <Project Path="src/Daycare.Domain/Daycare.Domain.csproj" />
+    <Project Path="src/Daycare.Infrastructure/Daycare.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Daycare.Application.Tests/Daycare.Application.Tests.csproj" />
+    <Project Path="tests/Daycare.Api.Tests/Daycare.Api.Tests.csproj" />
+  </Folder>
+</Solution>
